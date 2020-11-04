@@ -1,3 +1,29 @@
+<?php   
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "andromeda";
+
+    // Criando conexão
+    $connect = mysqli_connect($servername, $username, $password, $database);
+
+    // Verificando a conexão
+    if(!$connect){
+        echo "Falha na conexão: "  . mysqli_connect_error;
+    }
+
+if(isset($_POST['nome']) && isset($_POST['msg']) && isset($_POST['email'])){
+    $nome = $_POST['nome'];
+    $msg = $_POST['msg'];
+    $email = $_POST['email'];
+
+    $sql = "insert into comentarios (nome,msg,email) values('$nome','$msg','$email')";
+    $result = $conn->query($sql);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,16 +42,12 @@
      </style>
 </head>
    <body>
-     <!- - Inicio Menu - - >
-     <nav class="menu">
-        <a href="index.html"><img align="center" width = "150px" src="./Imagens/LogoAndromeda.png" alt="Andromeda Instrumentos"></a>
-        <a href="index.html">Página Inicial</a>
-        <a href="produtos.html">Nossos Produtos</a>
-        <a href="assistencia.html"> Assistência</a>
-        <a href="loja.html">Nossas lojas</a>
-        <a href="fale_conosco.html">Fale Conosco</a>
-     </nav>
-<! - - Fim do Menu - ->
+        <!-- Inicio Menu -->
+        <!-- Fim do Menu -->
+        <?php
+            include_once('menu.html');
+            ?>
+
 <h2>Contato</h2>
 <hr>
 <center>
@@ -41,9 +63,6 @@
     <fieldset>
     <h4>Nome completo: </h4>
     <input type="text" style="width: 400px;">
-    <h4>Número de telefone: </h4>
-    <input type="number" style="width: auto;">
-    <h4> E-mail: </h4>
     <input type="text" style="width: 400px;">
     <h4>Mensagem: </h4>
     <textarea style="width: 400px;"></textarea>

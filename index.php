@@ -9,15 +9,11 @@
 
          <body>
              <!-- Inicio Menu -->
-             <nav class="menu">
-                <a href="index.html"><img align="center" width = "150px" src="./Imagens/LogoAndromeda.png" alt="Andromeda Instrumentos"></a>
-                <a href="index.html">Página Inicial</a>
-                <a href="produtos.html">Nossos Produtos</a>
-                <a href="assistencia.html"> Assistência</a>
-                <a href="loja.html">Nossas lojas</a>
-                <a href="fale_conosco.html">Fale Conosco</a>
-             </nav>
             <!-- Fim do Menu -->
+
+            <?php
+            include_once('menu.html');
+            ?>
 
 
             <main>
